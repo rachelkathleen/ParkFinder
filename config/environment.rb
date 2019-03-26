@@ -9,8 +9,5 @@ ActiveRecord::Base.establish_connection(
 )
 
 require './app/controllers/application_controller'
-require './app/controllers/note_controller'
-require './app/controllers/park_controller'
-require './app/controllers/user_controller'
 
 require_all 'app'

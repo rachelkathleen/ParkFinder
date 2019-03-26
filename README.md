@@ -1,5 +1,5 @@
 TO DO:
-
+add foreign keys (park id and user id) to notes table
 
 Stub out RESTful routes
   Parks

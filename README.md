@@ -1,24 +1,5 @@
 TO DO:
-Set relationships in models
 
-User
-  -Users have many notes
-  -Users have many parks
-
-Park
-  -Parks have many notes though a user
-  -Parks have many users
-
-Note
-  -Notes belong to a user
-  -Notes belong to a park through a user
-
-      Join table - UserParks
-
-
-Finish setting up environment
-
-Figure out how to fix states/save parks to DB
 
 Create DB for users
   -user name*

@@ -1,5 +1,5 @@
 require_relative '../../config/environment'
-class UserController < Sinatra::Base
+class UserController < ApplicationController
   has_secure_password
 
   configure do

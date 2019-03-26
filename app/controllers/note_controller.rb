@@ -1,5 +1,5 @@
 require_relative '../../config/environment'
-class NoteController < Sinatra::Base
+class NoteController < ApplicationController
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'

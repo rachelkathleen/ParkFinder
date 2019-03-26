@@ -13,10 +13,6 @@ class ApplicationController < Sinatra::Base
     erb :homepage
   end
 
-  get '/login' do
-    erb :login
-  end
-
   get '/create_user' do
     erb :create_user
   end

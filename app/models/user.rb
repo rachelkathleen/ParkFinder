@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
-  configure do
-    set :public_folder, 'public'
-    set :views, 'app/views/user_views'
-  end
+  has_secure_password
+
+  has_many :notes
+  has_many :user_parks
+  has_many :parks, through: :user_parks
 
 end

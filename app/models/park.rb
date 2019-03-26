@@ -1,7 +1,6 @@
 class Park < ActiveRecord::Base
-  configure do
-    set :public_folder, 'public'
-    set :views, 'app/views/park_views'
-  end
 
+  has_many :notes
+  has_many :user_parks
+  has_many :users, through: :user_parks
 end

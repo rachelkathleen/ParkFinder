@@ -5,10 +5,20 @@ class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
+    enable :session
+    set :session_secret, 'parks'
   end
 
   get "/" do
-    erb :welcome
+    erb :homepage
+  end
+
+  get '/login' do
+    erb :login
+  end
+
+  get '/create_user' do
+    erb :create_user
   end
 
 end

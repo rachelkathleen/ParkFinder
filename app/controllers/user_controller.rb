@@ -1,4 +1,5 @@
 require_relative '../../config/environment'
+
 class UserController < ApplicationController
   has_secure_password
 

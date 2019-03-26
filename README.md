@@ -1,29 +1,6 @@
 TO DO:
 
 
-Create DB for users
-  -user name*
-  -password*
-  -email*
-  -been to?
-  -want to go to?
-
-Create DB for parks
-  -name
-  -state
-  -img
-  -website
-
-Create DB for notes
-  -title
-  -content
-  -user_id
-  -park_id
-
-Create DB for UserParks
-  -user_id
-  -park_id
-
 Stub out RESTful routes
   Parks
     HTTP VERB          ROUTE            ACTION             DESCRIPTION              

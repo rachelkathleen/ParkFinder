@@ -1,19 +1,15 @@
 require_relative '../../config/environment'
 
 class ParkController < ApplicationController
-  configure do
-    set :public_folder, 'public'
-    set :views, 'app/views/park_views'
-  end
 
   get '/parks' do
-    erb :parks
+    erb :'park_views/parks'
   end
 
 
   get '/parks/:id' do
     @park = Park.find(params[:id])
-    erb :'/show'
+    erb :'park_views/show'
   end
 
   # get '/parks/:park_name' do

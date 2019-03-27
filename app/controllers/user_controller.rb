@@ -3,12 +3,25 @@ require_relative '../../config/environment'
 class UserController < ApplicationController
 
 
+  get '/signup' do
+    erb :'user_views/signup'
+  end
+
+  post "/signup" do
+    user = User.new(params)
+    if user.save
+      redirect "/login"
+    else
+      redirect "/failure"
+    end
+  end
+
   get '/login' do
     erb :'user_views/login'
   end
 
   post "/login" do
-    user = User.find_by(:username => params[:username])
+    user = User.find_by(:user_name => params[:user_name])
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
@@ -18,18 +31,8 @@ class UserController < ApplicationController
     end
   end
 
-  get '/signup' do
-    erb :'user_views/signup'
-  end
-
-  post "/signup" do
-    user = User.new(params)
-    binding.pry
-    if user.save
-      redirect "user_views/login"
-    else
-      redirect "user_views/failure"
-    end
+  get '/failure' do
+    erb :'user_views/failure'
   end
 
   get '/users' do

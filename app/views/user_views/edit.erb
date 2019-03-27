@@ -1,19 +1,21 @@
-<h1>show a form to edit a user</h1>
-
-<h1>Editing <%= @user.user_name %></h1>
-<form method="POST"  action="/users/<%= @user.id %>">
-    <input type='hidden' value='PATCH' name='_method'>
-    <div>
-        <label>Your profile</label>
-        <input type="text" value="<%= @user.user_name %>" placeholder="Username" name="user_name"  />
-    </div>
-    <div>
-        <label>Password</label>
-        <input type="password" value="<%= @user.password %>" name="password"  />
-    </div>
-    <div>
-        <label>Email</label>
-        <input type="text" name="email" value="<%= @user.email %>"  />
-    </div>
-    <input type="submit" value="Edit Profile">
+<form action="/signup" method="POST">
+		<h3>Edit your profile!</h3>
+				<div class="row">
+	        <div class="input-field col s12">
+	          <input id="<%= @user.user_name %>" type="text" class="validate">
+	          <label for="user_name">Username</label>
+	        </div>
+	      </div>
+	        <div class="input-field col s12">
+	          <input id="<%= @user.password %>" type="password" class="validate">
+	          <label for="password">Password</label>
+	        </div>
+	      <div class="row">
+	        <div class="input-field col s12">
+	          <input id="<%= @user.email %>" type="email" class="validate">
+	          <label for="email">Email</label>
+	        </div>
+	      </div>
+	    </form>
+	  </div>
 </form>

@@ -12,14 +12,14 @@ class ApplicationController < Sinatra::Base
   get "/" do
     erb :homepage
   end
-
-  helpers do
-    def logged_in?
-      !!session[:user_id]
-    end
-
-    def current_user
-      User.find(session[:user_id])
-    end
-  end
+  # 
+  # helpers do
+  #   def logged_in?
+  #     !!session[:user_id]
+  #   end
+  #
+  #   def current_user
+  #     User.find(session[:user_id])
+  #   end
+  # end
 end

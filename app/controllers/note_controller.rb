@@ -1,36 +1,37 @@
 require_relative '../../config/environment'
+
 class NoteController < ApplicationController
 
   get '/notes' do
-    @items = Item.all
-    erb :'note_views/notes' #create this view
+      @items = Item.all
+      erb :'note_views/notes'
   end
 
-  get 'notes/new' do
-    erb :'note_views/new' #create view
+  get '/notes/new' do
+    erb :'note_views/new'
   end
 
-  post 'notes' do
+  post '/notes/new' do
     @note = Note.new(title: params[:title], content: params[:content])
     #how to add user_id and park_id?
     if @note.save
-        redirect "/notes/#{note.id}"
+        redirect "/notes/#{@note.id}"
     else
         erb :'note_views/new'
     end
   end
 
-  get 'notes/:id' do
+  get '/notes/:id' do
     @note = Note.find(params[:id])
-    erb :'note_views/show' #create this erb file
+    erb :'note_views/show'
   end
 
-  get 'notes/:id/edit' do
+  get '/notes/:id/edit' do
     @note = Note.find(params[:id])
-    erb :'note_views/edit' #create this erb file
+    erb :'note_views/edit'
   end
 
-  patch 'notes/:id' do
+  patch '/notes/:id' do
     @note = Note.find(params[:id])
     if @item.update(title: params[:title], content: params[:content])
       redirect "/note_views/#{@note.id}"
@@ -39,7 +40,7 @@ class NoteController < ApplicationController
     end
   end
 
-  delete 'notes/:id' do
+  delete '/notes/:id' do
     @note = Note.find(params[:id])
 
     if @note.delete

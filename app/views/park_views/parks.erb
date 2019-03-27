@@ -2,4 +2,5 @@
 <% Park.all.each do |park| %>
     </h3><a href="/parks/<%=park.id%>"><%= park.park_name%></a></h3>
     <p><%= park.headline%></p>
+    <p><%= park.state%></p>
 <% end %>

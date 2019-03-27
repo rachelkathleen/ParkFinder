@@ -1,25 +1,18 @@
 TO DO:
+ -find way to associate notes with user who is creating it and park it was created about
+ -make it so only a user who created a note can edit or delete it (or edit/delete themself!)
 
-Stub out RESTful routes
-    HTTP VERB          ROUTE            ACTION             DESCRIPTION              
+ -user_view page (for viewing/editing their own page)
+ -'show' page for users and parks
+    users
+      -username
+      -bucket list/been list of parks (can this be in the form of chips?
+        https://materializecss.com/chips.html
+      -notes - chips? cards?
+      -maybe use collapsible?
+        https://materializecss.com/collapsible.html
 
-  Notes
-    HTTP VERB          ROUTE             ACTION             DESCRIPTION              
-    GET             /notes               index       Shows all the notes inn the db
-    GET             /notes/new           new         Show a FORM for a new note
-    POST            /notes               create      Creates a note in DB, and then typically redirects
-    GET             /note/:id            show        Show info about specific note
-    GET             /note/:id/edit       edit        Show a FORM to edit a specific note
-    PUT/PATCH       /note/:id            update      Edits a note in DB, and then typically redirects
-    DELETE          /note/:id            destroy     Deletes a note from DB, and then typically redirects
 
-Create files for each view
-    Layout
-    Homepage
-    Login
-    Account Page(page for a user that shows their info, parks, and notes)
-    Parks index(page that shows all parks)
-    Park page(page that shows info about one park, with users and notes)
-    Page to create a new note
-    Page to edit a note
-    Page to view a note (with buttons to edit or delete)
+
+  -reformat all forms to be uniform - try to use buttons for submit/login/delete/edit/add
+    https://materializecss.com/buttons.html

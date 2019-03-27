@@ -3,11 +3,11 @@ class NoteController < ApplicationController
 
   get '/notes' do
     @items = Item.all
-    erb :'items/index' #create this view
+    erb :'note_views/notes' #create this view
   end
 
   get 'notes/new' do
-    erb :'items/new' #create view
+    erb :'note_views/new' #create view
   end
 
   post 'notes' do
@@ -16,26 +16,26 @@ class NoteController < ApplicationController
     if @note.save
         redirect "/notes/#{note.id}"
     else
-        erb :'notes/new'
+        erb :'note_views/new'
     end
   end
 
   get 'notes/:id' do
     @note = Note.find(params[:id])
-    erb :'notes/show' #create this erb file
+    erb :'note_views/show' #create this erb file
   end
 
   get 'notes/:id/edit' do
     @note = Note.find(params[:id])
-    erb :'notes/edit' #create this erb file
+    erb :'note_views/edit' #create this erb file
   end
 
   patch 'notes/:id' do
     @note = Note.find(params[:id])
     if @item.update(title: params[:title], content: params[:content])
-      redirect "/notes/#{@note.id}"
+      redirect "/note_views/#{@note.id}"
     else
-      erb :'notes/edit'
+      erb :'note_views/edit'
     end
   end
 

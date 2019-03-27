@@ -2,7 +2,6 @@ require_relative '../../config/environment'
 
 class UserController < ApplicationController
 
-
   get '/signup' do #new
     erb :'user_views/signup'
   end
@@ -11,8 +10,9 @@ class UserController < ApplicationController
     if params[:user_name] == "" || params[:password] == "" || params[:email] == ""
       redirect '/failure'
     else
+      binding.pry
       User.create(params)
-      redirect "/user_page"
+      redirect "/users"
     end
   end
 
@@ -22,9 +22,9 @@ class UserController < ApplicationController
 
   post "/login" do
     user = User.find_by(:user_name => params[:user_name])
-
+    session[:user_id] = user.id
     if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
+      binding.pry
       redirect "/user_page"
     else
       redirect "/failure"
@@ -36,15 +36,13 @@ class UserController < ApplicationController
   end
 
   get '/users' do
-    if logged_in
       erb :'user_views/users'
-    else
-      redirect '/login'
   end
 
   get '/user_page' do
-      @user = current_user
-      erb :'user_views/user_page'
+    @user = User.find_by(session[:user_id])
+    binding.pry
+    erb :'user_views/user_page'
   end
 
   get '/users/new' do
@@ -61,15 +59,14 @@ class UserController < ApplicationController
   end
 
   get '/users/:id/edit' do
-    # @user = User.find(params[:id])
-    @user = current_user
+    @user = User.find(params[:id])
+
     erb :'user_views/edit'
   end
 
   patch '/users/:id' do
     # @user = User.find(params[:id])
-    @user = current_user
-
+      @user = User.find_by(session[:user_id])
     if @user.update(user_name: params[:user_name], email: params[:email], password: params[:password])
         redirect "/users/#{@user.id}"
     else
@@ -92,13 +89,13 @@ class UserController < ApplicationController
     redirect "/"
   end
 
-helpers do
-  def logged_in?
-    !!session[:user_id]
-  end
+  helpers do
+    def logged_in?
+      !!session[:user_id]
+    end
 
-  def current_user
-    User.find(session[:user_id])
-  end
+    def current_user
+      User.find_by(session[:user_id])
+    end
   end
 end

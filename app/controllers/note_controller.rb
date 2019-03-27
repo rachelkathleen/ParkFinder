@@ -13,7 +13,7 @@ class NoteController < ApplicationController
 
   post '/notes/new' do
     @note = Note.new(title: params[:title], content: params[:content])
-    #how to add user_id and park_id?
+    current_user.notes.build
     if @note.save
         redirect "/notes/#{@note.id}"
     else

@@ -40,8 +40,7 @@ class UserController < ApplicationController
   end
 
   get '/user_page' do
-    @user = User.find_by(session[:user_id])
-    binding.pry
+    @user = current_user
     erb :'user_views/user_page'
   end
 
@@ -59,16 +58,16 @@ class UserController < ApplicationController
   end
 
   get '/users/:id/edit' do
-    @user = User.find(params[:id])
+    @user = current_user
 
     erb :'user_views/edit'
   end
 
   patch '/users/:id' do
-    # @user = User.find(params[:id])
-      @user = User.find_by(session[:user_id])
+    #condition for page being patched belongs to current_user
+      @user = current_user
     if @user.update(user_name: params[:user_name], email: params[:email], password: params[:password])
-        redirect "/users/#{@user.id}"
+        redirect "/user_page"
     else
         erb :'user_views/edit'
     end
@@ -87,15 +86,5 @@ class UserController < ApplicationController
   get "/logout" do
     session.clear
     redirect "/"
-  end
-
-  helpers do
-    def logged_in?
-      !!session[:user_id]
-    end
-
-    def current_user
-      User.find_by(session[:user_id])
-    end
   end
 end

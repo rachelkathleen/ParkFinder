@@ -1,11 +1,8 @@
 TO DO:
-add foreign keys (park id and user id) to notes table
 
 Stub out RESTful routes
-  Parks
     HTTP VERB          ROUTE            ACTION             DESCRIPTION              
-    GET             /parks              index       Shows all the parks in the db
-    GET             /parks/:id          show        Show info about specific park
+
   Notes
     HTTP VERB          ROUTE             ACTION             DESCRIPTION              
     GET             /notes               index       Shows all the notes inn the db
@@ -15,14 +12,6 @@ Stub out RESTful routes
     GET             /note/:id/edit       edit        Show a FORM to edit a specific note
     PUT/PATCH       /note/:id            update      Edits a note in DB, and then typically redirects
     DELETE          /note/:id            destroy     Deletes a note from DB, and then typically redirects
-  Users
-    Need login
-          logout
-          home/account
-          edit account
-          delete account
-
-
 
 Create files for each view
     Layout

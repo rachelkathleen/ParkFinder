@@ -36,11 +36,14 @@ class UserController < ApplicationController
   end
 
   get '/users' do
-    erb :'user_views/users'
+    if logged_in
+      erb :'user_views/users'
+    else
+      redirect '/login'
   end
 
   get '/user_page' do
-      @user = User.find_by(session[:user_id])
+      @user = current_user
       erb :'user_views/user_page'
   end
 
@@ -58,22 +61,25 @@ class UserController < ApplicationController
   end
 
   get '/users/:id/edit' do
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
+    @user = current_user
     erb :'user_views/edit'
   end
 
   patch '/users/:id' do
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
+    @user = current_user
 
     if @user.update(user_name: params[:user_name], email: params[:email], password: params[:password])
         redirect "/users/#{@user.id}"
     else
-        erb :'items/edit'
+        erb :'user_views/edit'
     end
   end
 
   delete '/users/:id' do
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
+    @user = current_user
     if @user.delete
       redirect '/'
     else

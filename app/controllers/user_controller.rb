@@ -7,8 +7,29 @@ class UserController < ApplicationController
     erb :'user_views/login'
   end
 
+  post "/login" do
+    user = User.find_by(:username => params[:username])
+
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect "/parks"  #need to change to user homepage
+    else
+      redirect "/failure"
+    end
+  end
+
   get '/signup' do
     erb :'user_views/signup'
+  end
+
+  post "/signup" do
+    user = User.new(params)
+    binding.pry
+    if user.save
+      redirect "user_views/login"
+    else
+      redirect "user_views/failure"
+    end
   end
 
   get '/users' do

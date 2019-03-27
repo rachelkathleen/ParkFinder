@@ -12,9 +12,4 @@ class ApplicationController < Sinatra::Base
   get "/" do
     erb :homepage
   end
-
-  get '/create_user' do
-    erb :create_user
-  end
-
 end

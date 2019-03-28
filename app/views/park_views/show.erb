@@ -36,16 +36,18 @@
         <li>
           <div class="collapsible-header"><i class="material-icons">control_point</i>Add this park to your profile</div>
           <div class="collapsible-body">
-            <span><form class="" action="index.html" method="post">
+            <span><form action="/user_parks/new" method="post">
+              <input type="hidden" name="user_id" value="<%=current_user.id%>">
+              <input type="hidden" name="park_id" value="<%=@park.id%>">
             <p>
               <label>
-                <input type="checkbox" />
+                <input type="checkbox" name="bucket_list" value="userpark.bucket_list" />
                 <span>Bucket List!</span>
               </label>
             </p>
             <p>
               <label>
-                <input type="checkbox" />
+                <input type="checkbox" name="been_to" value="userpark.been_to"/>
                 <span>Been to!</span>
               </label>
             </p>

@@ -36,7 +36,7 @@
         <li>
           <div class="collapsible-header"><i class="material-icons">control_point</i>Add this park to your profile</div>
           <div class="collapsible-body">
-            <span><form action="/user_parks/new" method="post">
+            <span><form action="/parks/user_parks/new" method="post">
               <input type="hidden" name="user_id" value="<%=current_user.id%>">
               <input type="hidden" name="park_id" value="<%=@park.id%>">
             <p>

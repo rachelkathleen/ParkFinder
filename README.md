@@ -1,5 +1,5 @@
 TO DO:
- -find way to associate notes with user who is creating it and park it was created about
+ -add parks drop down
  -make it so only a user who created a note can edit or delete it (or edit/delete themself!)
 
  -user_view page (for viewing/editing their own page)

@@ -8,4 +8,5 @@ use Rack::MethodOverride
 use NoteController
 use ParkController
 use UserController
+use UserParksController
 run ApplicationController

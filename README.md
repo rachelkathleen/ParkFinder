@@ -1,6 +1,8 @@
 TO DO:
  -see if delete can be a hyperlink/route instead of a button or if edit can also be a button!
 
+ placeholders vs value in edit note form?
+
 -userparks is making objects and are in DB, but not showing on user_page - why?
 -delete/edit userparks?
 

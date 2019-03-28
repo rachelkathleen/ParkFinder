@@ -1,19 +1,23 @@
 class UserParksController < ApplicationController
 
+  get '/parks/user_parks/new' do
+    erb :'user_parks/new'
+  end
+
+  post '/parks/user_parks/new' do
+    @userpark = UserPark.new(params)
+    if @userpark.save
+        redirect "/user_page"
+    else
+        erb :failure
+    end
+  end
+
   # GET: /user_parks
   get "/user_parks" do
     erb :"/user_parks/index.html"
   end
 
-  # GET: /user_parks/new
-  get "/user_parks/new" do
-    erb :"/user_parks/new.html"
-  end
-
-  # POST: /user_parks
-  post "/user_parks" do
-    redirect "/user_parks"
-  end
 
   # GET: /user_parks/5
   get "/user_parks/:id" do

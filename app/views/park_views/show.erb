@@ -5,39 +5,46 @@
     <h1><%= @park.park_name%></h1>
     <p><%= @park.headline%></p>
     <p><%= @park.description%></p>
+    <a href="><%= @park.website%></">NPS Website</a>
+
   </div>
 </div
 
-<div class="divider"></div>
-<div class="section">
-  <h5>Users who have been here!</h5>
-  <p>Stuff</p>
+<%if logged_in?%>
+
+<div class="container white">
+  <div class="divider"></div>
+  <div class="section">
+    <h5>Users who have been here!</h5>
+    <p>Stuff</p>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <h5>Users who want to go here!</h5>
+    <p>Stuff</p>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <h5>Notes about <%= @park.park_name%></h5>
+    <%Note.all.each do |note|%>
+    <a href="/notes/<%=note.id%>"><%=note.title%></a><br>
+        <%end%>
+  </div>
+    <h4>Add this Park to your profile!</h4>
+    <form class="" action="index.html" method="post">
+      <p>
+        <label>
+          <input type="checkbox" />
+          <span>Bucket List!</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type="checkbox" />
+          <span>Been to!</span>
+        </label>
+      </p>
+      <input type="submit" value="Add to list">
+    </form>
 </div>
-<div class="divider"></div>
-<div class="section">
-  <h5>Users who want to go here!</h5>
-  <p>Stuff</p>
-</div>
-<div class="divider"></div>
-<div class="section">
-  <h5>Notes about <%= @park.park_name%></h5>
-  <%Note.all.each do |note|%>
-  <a href="/notes/<%=note.id%>"><%=note.title%></a><br>
-      <%end%>
-</div>
-  <h4>Add this Park to your profile!</h4>
-  <form class="" action="index.html" method="post">
-    <p>
-      <label>
-        <input type="checkbox" />
-        <span>Bucket List!</span>
-      </label>
-    </p>
-    <p>
-      <label>
-        <input type="checkbox" />
-        <span>Been to!</span>
-      </label>
-    </p>
-    <input type="submit" value="Add to list">
-  </form>
+<% end %>

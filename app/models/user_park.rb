@@ -1,4 +1,4 @@
 class UserPark < ActiveRecord::Base
-  has_many :users
-  has_many :parks
+  belongs_to :user
+  belongs_to :park
 end

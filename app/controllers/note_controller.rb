@@ -12,7 +12,6 @@ class NoteController < ApplicationController
   end
 
   post '/notes/new' do
-    binding.pry
     @note = Note.new(params)
     # current_user.notes.build
     if @note.save

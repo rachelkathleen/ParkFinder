@@ -13,17 +13,6 @@ class UserParksController < ApplicationController
     end
   end
 
-  # GET: /user_parks
-  get "/user_parks" do
-    erb :"/user_parks/index.html"
-  end
-
-
-  # GET: /user_parks/5
-  get "/user_parks/:id" do
-    erb :"/user_parks/show.html"
-  end
-
   # GET: /user_parks/5/edit
   get "/user_parks/:id/edit" do
     erb :"/user_parks/edit.html"

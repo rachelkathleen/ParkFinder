@@ -2,6 +2,11 @@ require_relative '../../config/environment'
 
 class UserController < ApplicationController
 
+
+  get '/users' do
+      erb :'user_views/users'
+  end
+
   get '/signup' do #new
     erb :'user_views/signup'
   end
@@ -10,7 +15,6 @@ class UserController < ApplicationController
     if params[:user_name] == "" || params[:password] == "" || params[:email] == ""
       redirect '/failure'
     else
-      binding.pry
       User.create(params)
       redirect "/login"
     end
@@ -24,7 +28,6 @@ class UserController < ApplicationController
     user = User.find_by(:user_name => params[:user_name])
     session[:user_id] = user.id
     if user && user.authenticate(params[:password])
-      binding.pry
       redirect "/user_page"
     else
       redirect "/failure"
@@ -35,21 +38,10 @@ class UserController < ApplicationController
     erb :'user_views/failure'
   end
 
-  get '/users' do
-      erb :'user_views/users'
-  end
 
   get '/user_page' do
     @user = current_user
     erb :'user_views/user_page'
-  end
-
-  get '/users/new' do
-    #create a new user - made 'signup' instead
-  end
-
-  post '/users' do
-    #Creates a user in DB, and then typically redirects
   end
 
   get '/users/:id' do
@@ -59,13 +51,12 @@ class UserController < ApplicationController
 
   get '/users/:id/edit' do
     @user = current_user
-
     erb :'user_views/edit'
   end
 
   patch '/users/:id' do
     #condition for page being patched belongs to current_user
-      @user = current_user
+    @user = current_user
     if @user.update(user_name: params[:user_name], email: params[:email], password: params[:password])
         redirect "/user_page"
     else
@@ -74,7 +65,6 @@ class UserController < ApplicationController
   end
 
   delete '/users/:id' do
-    # @user = User.find(params[:id])
     @user = current_user
     if @user.delete
       redirect '/'

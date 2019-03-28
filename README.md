@@ -7,12 +7,9 @@ TO DO:
   -to edit profile
   -to delete profile
 
-  -add user name and park link to notes show page
-
- -'show' page for users
-
   -reformat all forms to be uniform - try to use buttons for submit/login/delete/edit/add
-    https://materializecss.com/buttons.html
+
+  edit note form is crap
 
   -need way to add parks to users' lists
 

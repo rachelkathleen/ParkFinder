@@ -1,19 +1,19 @@
 TO DO:
- -see if delete can be a hyperlink/route instead of a button
--need way to add parks to users' lists
+ -see if delete can be a hyperlink/route instead of a button or if edit can also be a button!
+
+-userparks is making objects and are in DB, but not showing on user_page - why?
+-delete/edit userparks?
 
  -user_view page (for viewing/editing their own page)
-  -add link to create a new note
   -to edit profile
   -to delete profile
+  -create if condition for no notes/parks
 
   -reformat all forms to be uniform - try to use buttons for submit/login/delete/edit/add
 
   edit note form is crap
 
-  -need way to add parks to users' lists
-
   parks page
-    -why is if condition printing 'no notes about' 12 times?
+    -create if condition for no notes/users
 
   set up sinatra flash https://github.com/SFEley/sinatra-flash

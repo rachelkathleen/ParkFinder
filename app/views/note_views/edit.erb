@@ -1,13 +1,13 @@
-<h1>Editing <%= @note.title %></h1>
+<h3>Editing <%= @note.title %></h3>
 <form method="POST"  action="/notes/<%= @note.id %>">
-    <input type='hidden' value='PATCH' name='_method'>
-    <div>
-        <label>Title</label>
-        <input type="text" value="<%= @note.title %>" placeholder="Title" name="title"  />
+  <input type='hidden' value='PATCH' name='_method'>
+  <div class="row">
+    <div class="six columns">
+      <label for="NoteTitle">Title</label>
+      <input class="u-full-width" type="text" name="title" placeholder="<%= @note.title %>">
     </div>
-    <div>
-        <label>Body</label>
-        <input type="textarea" name="content" value="<%= @note.content %>"  />
     </div>
-    <input type="submit" value="Edit Note">
+  <label for="NoteContent">Content</label>
+  <textarea class="u-full-width" name="content" placeholder="<%= @note.content %>"></textarea>
+  <input class="button-primary" type="submit" value="Update">
 </form>

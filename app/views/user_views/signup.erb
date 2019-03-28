@@ -1,8 +1,17 @@
-<h1>Create a profile</h1>
+<h3>Create a profile</h3>
 <form action="/signup" method="POST">
-<input type="text" name="user_name" placeholder="Username:">
-<input type="text" name="email" placeholder="Email:">
-<input type="password" name="password" placeholder="Password:">
-<input type="submit" value="Submit">
-
+  <div class="row">
+    <div class="twelve columns">
+      <label for="Username">Username</label>
+      <input class="u-full-width" type="text" placeholder="" name="user_name">
+    </div>
+    <div class="twelve columns">
+      <label for="exampleEmailInput">Email</label>
+      <input class="u-full-width" type="email" placeholder="" name="email">
+    </div>
+    <div class="twelve columns">
+      <label for="exampleEmailInput">Password</label>
+      <input class="u-full-width" type="password" placeholder="" name="password">
+    </div>
+  <input class="button-primary" type="submit" value="Submit">
 </form>

@@ -1,19 +1,22 @@
-
-
-<h2>Create a note</h2>
+<h3>Write your new note here!</h3>
+<br>
 <form action="/notes/new" method="post">
-  <input type="text" name="title" placeholder="Title:">
-	<input type="text" name="content" placeholder="Content:">
-<br>
-<label>Choose a Park</label>
-<select name="park_id" style="display: block;"> 
-  <%Park.all.each do |park|%>
-    <option name="park_id" value="<%=park.id%>"><%=park.park_name%></option> 
-      <%end%>
-</select>
-<input type="hidden" name="user_id" value="<%=current_user.id%>">
-<br>
-<br>
-
-<input type="submit" value="Make Note">
+  <div class="row">
+    <div class="six columns">
+      <label for="NoteTitle">Title</label>
+      <input class="u-full-width" type="text" name="title">
+    </div>
+    <div class="six columns">
+      <label for="ParkInput">Select a park</label>
+      <select class="u-full-width" name="park_id" style="display: block;">
+        <%Park.all.each do |park|%>
+          <option name="park_id" value="<%=park.id%>"><%=park.park_name%></option> 
+        <%end%>
+      </select>
+    </div>
+  </div>
+  <label for="NoteContent">Content</label>
+  <textarea class="u-full-width" placeholder="Share a tip, your favorite trail - or anything else you'd like to share!" name="content"></textarea>
+  <input type="hidden" name="user_id" value="<%=current_user.id%>">
+  <input class="button-primary" type="submit" value="Submit">
 </form>

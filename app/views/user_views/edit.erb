@@ -19,3 +19,22 @@
 	    </form>
 	  </div>
 </form>
+
+<h3>Edit your profile!</h3>
+<form action="/user_page" method="POST">
+  <input type='hidden' value='PATCH' name='_method'>
+  <div class="row">
+    <div class="six columns">
+      <label for="exampleEmailInput">Username</label>
+      <input class="u-full-width" type="text" placeholder="<%= @user.user_name %>" id="exampleEmailInput">
+    </div>
+    <div class="six columns">
+      <label for="exampleEmailInput">Email</label>
+      <input class="u-full-width" type="email" placeholder="<%= @user.email %>" id="exampleEmailInput">
+    </div>
+    <div class="six columns">
+      <label for="exampleEmailInput">Password</label>
+      <input class="u-full-width" type="email" placeholder="<%= @user.password %>" id="exampleEmailInput">
+    </div>
+  <input class="button-primary" type="submit" value="Submit">
+</form>

@@ -15,7 +15,8 @@ class UserController < ApplicationController
     if params[:user_name] == "" || params[:password] == "" || params[:email] == ""
       redirect '/failure'
     else
-      User.create(params)
+      @user = User.create(params)
+      session[:user_id] = @user.id
       redirect "/user_page"
     end
   end

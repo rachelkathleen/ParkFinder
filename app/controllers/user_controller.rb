@@ -12,7 +12,7 @@ class UserController < ApplicationController
     else
       binding.pry
       User.create(params)
-      redirect "/users"
+      redirect "/login"
     end
   end
 

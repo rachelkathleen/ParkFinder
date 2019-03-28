@@ -1,11 +1,10 @@
 TO DO:
- -see if delete can be a hyperlink/route instead of a button or if edit can also be a button!
 
-BUG users and parks not populating correctly in notes view
+
 
 BUG placeholders vs value in edit note form?
 
-BUG userparks is making objects and are in DB, but not showing on user_page - why?
+fix death valley image in tux
 
   -delete/edit userparks?
 

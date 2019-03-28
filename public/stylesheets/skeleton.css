@@ -173,10 +173,10 @@ input[type="button"] {
   display: inline-block;
   height: 38px;
   padding: 0 30px;
-  color: #555;
+  color: black;
   text-align: center;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 750;
   line-height: 38px;
   letter-spacing: .1rem;
   text-transform: uppercase;
@@ -338,7 +338,7 @@ td:last-child {
 /* Spacing
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 button,
-.button {
+.button-primary {
   margin-bottom: 1rem; }
 input,
 textarea,

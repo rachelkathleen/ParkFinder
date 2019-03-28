@@ -4,47 +4,55 @@
   <div class="hero-text">
     <h1><%= @park.park_name%></h1>
     <p><%= @park.headline%></p>
-    <p><%= @park.description%></p>
-    <a href="><%= @park.website%></">NPS Website</a>
-
   </div>
 </div
 
-<%if logged_in?%>
-
 <div class="container white">
-  <div class="divider"></div>
-  <div class="section">
-    <h5>Users who have been here!</h5>
-    <p>Stuff</p>
+    <ul class="collapsible">
+        <li>
+          <div class="collapsible-header"><i class="material-icons">control_point</i>Park description</div>
+          <div class="collapsible-body"><span><%= @park.description%><br><br><a href="><%= @park.website%></">NPS Website</a></span></div>
+        </li>
+        <%if logged_in?%>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">control_point</i>Notes about <%= @park.park_name%></div>
+          <div class="collapsible-body">
+            <span><%Note.all.each do |note|%>
+                  <% if note.park_id == @park.id%>
+                    <a href="/notes/<%=note.id%>"><%=note.title%></a><br>
+                    <%end%>
+                  <%end%>
+                  <br><a href="/notes/new">Write a new note</a></span>
+            </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">control_point</i>Vistors</div>
+          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">control_point</i>Users who want to visit</div>
+          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">control_point</i>Add this park to your profile</div>
+          <div class="collapsible-body">
+            <span><form class="" action="index.html" method="post">
+            <p>
+              <label>
+                <input type="checkbox" />
+                <span>Bucket List!</span>
+              </label>
+            </p>
+            <p>
+              <label>
+                <input type="checkbox" />
+                <span>Been to!</span>
+              </label>
+            </p>
+            <input type="submit" value="Add to list">
+          </form></span>
+        </div>
+        </li>
+        <% end %>
+      </ul>
   </div>
-  <div class="divider"></div>
-  <div class="section">
-    <h5>Users who want to go here!</h5>
-    <p>Stuff</p>
-  </div>
-  <div class="divider"></div>
-  <div class="section">
-    <h5>Notes about <%= @park.park_name%></h5>
-    <%Note.all.each do |note|%>
-    <a href="/notes/<%=note.id%>"><%=note.title%></a><br>
-        <%end%>
-  </div>
-    <h4>Add this Park to your profile!</h4>
-    <form class="" action="index.html" method="post">
-      <p>
-        <label>
-          <input type="checkbox" />
-          <span>Bucket List!</span>
-        </label>
-      </p>
-      <p>
-        <label>
-          <input type="checkbox" />
-          <span>Been to!</span>
-        </label>
-      </p>
-      <input type="submit" value="Add to list">
-    </form>
-</div>
-<% end %>

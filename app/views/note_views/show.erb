@@ -12,6 +12,9 @@
          </div>
          <div class="card-action">
            <a href="/parks/<%= @note.park_id%>"> More info about this park</a>
+           <%if @note.user = current_user%>
+           <a href="/notes/<%= @note.id %>/edit">Edit this note</a>
+           <%end%>
          </div>
        </div>
      </div>

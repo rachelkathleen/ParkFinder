@@ -16,7 +16,7 @@ class UserController < ApplicationController
       redirect '/failure'
     else
       User.create(params)
-      redirect "/login"
+      redirect "/user_page"
     end
   end
 

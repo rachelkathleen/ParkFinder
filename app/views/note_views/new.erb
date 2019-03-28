@@ -1,9 +1,19 @@
+
+
 <h2>Create a note</h2>
 <form action="/notes/new" method="post">
   <input type="text" name="title" placeholder="Title:">
 	<input type="text" name="content" placeholder="Content:">
-  <br>
-	<input type="submit" value="Make Note">
-</form>
+<br>
+<label>Choose a Park</label>
+<select name="park_id" style="display: block;"> 
+  <%Park.all.each do |park|%>
+    <option name="park_id" value="<%=park.id%>"><%=park.park_name%></option> 
+      <%end%>
+</select>
+<input type="hidden" name="user_id" value="<%=current_user.id%>">
+<br>
+<br>
 
-#need drop down for parks
+<input type="submit" value="Make Note">
+</form>

@@ -1,6 +1,5 @@
 TO DO:
- -add parks drop down
- -make it so only a user who created a note can edit or delete it (or edit/delete themself!)
+ -see if delete can be a hyperlink/route instead of a button
 
  -user_view page (for viewing/editing their own page)
  -'show' page for users and parks

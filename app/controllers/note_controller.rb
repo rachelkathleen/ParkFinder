@@ -3,7 +3,7 @@ require_relative '../../config/environment'
 class NoteController < ApplicationController
 
   get '/notes' do
-      @items = Item.all
+      @notes = Note.all
       erb :'note_views/notes'
   end
 
@@ -12,8 +12,9 @@ class NoteController < ApplicationController
   end
 
   post '/notes/new' do
-    @note = Note.new(title: params[:title], content: params[:content])
-    current_user.notes.build
+    binding.pry
+    @note = Note.new(params)
+    # current_user.notes.build
     if @note.save
         redirect "/notes/#{@note.id}"
     else
@@ -33,8 +34,8 @@ class NoteController < ApplicationController
 
   patch '/notes/:id' do
     @note = Note.find(params[:id])
-    if @item.update(title: params[:title], content: params[:content])
-      redirect "/note_views/#{@note.id}"
+    if @note.update(title: params[:title], content: params[:content])
+      redirect "/notes/#{@note.id}"
     else
       erb :'note_views/edit'
     end

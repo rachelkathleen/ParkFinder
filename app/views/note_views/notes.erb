@@ -8,10 +8,10 @@
       </div>
       <div class="card-action">
         <% if note.user_id %>
-        <a href="#" class="black-text"><%=User.find_by(note.user_id).user_name%></a>
+        <a href="#" class="black-text"><%=User.find(note.user_id).user_name%></a>
         <% end %>
         <% if note.park_id %>
-        <a href="#" class="black-text"><%=Park.find_by(note.park_id).park_name%></a>
+        <a href="#" class="black-text"><%=Park.find(note.park_id).park_name%></a>
         <% end %>
       </div>
     </div>

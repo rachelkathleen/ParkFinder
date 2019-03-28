@@ -1,5 +1,5 @@
 <div class="container white">
-  <h4>Welcome, <%= @user.user_name%></h4>
+  <h3>Welcome, <%=@user.user_name%></h3>
 
 
   <ul class="collapsible">
@@ -14,9 +14,10 @@
       <li>
         <div class="collapsible-header"><i class="material-icons">control_point</i>Parks you've been to</div>
         <div class="collapsible-body">
-          <span><% UserPark.all do |up|%>
-                    <%if up.been_list && up.user_id = current_user.id %>
-                      <p><%=Park.find(up.park_id).park_name%></p>
+          <span>
+                <% @user.user_parks.each do |up|%>
+                    <%if up.been_to %>
+                      <p><%=up.park.park_name%></p>
                    <%end%>
                   <%end%>
          </span>
@@ -25,11 +26,11 @@
       <li>
         <div class="collapsible-header"><i class="material-icons">control_point</i>Parks on your bucket list</div>
         <div class="collapsible-body">
-          <span><% UserPark.all do |up|%>
-                  <%if up.bucket_list && up.user_id = current_user.id %>
-                    <p><%=Park.find(up.park_id).park_name%></p>
+          <span><% @user.user_parks.each do |up|%>
+                    <%if up.bucket_list%>
+                      <p><%=up.park.park_name%></p>
+                   <%end%>
                   <%end%>
-                <%end%>
           </span>
          </div>
       </li>

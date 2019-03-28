@@ -1,17 +1,28 @@
 <% if @note.park_id %>
-<img src="<%= Park.find(@note.park_id).image %>" alt="<%= Park.find(@note.park_id).park_name%>" style='height: 100%; width: 100%; object-fit: contain'>
-<% end %>
-<div class="hero-image" img src="<%= Park.find(@note.park_id).image %>" alt="<%= Park.find(@note.park_id).park_name%>" style='height: 100%; width: 100%; object-fit: contain'">
-  <div class="hero-text">
-    <h1><%= @note.title%></h1>
-    <p><%= @note.content%></p>
-  </div>
-</div>
 
- <%if @note.user = current_user%>
-  <a href="/notes/<%= @note.id %>/edit">Edit</a>
-   <form method="POST" action="/notes/<%= @note.id %>">
-      <input type="hidden" value="DELETE" name="_method">
-      <input type="submit" value="Delete">
-   </form>
-   <%end%>
+   <div class="row">
+     <div class="col s12 m12 l12">
+       <div class="card">
+         <div class="card-image">
+           <img src="<%= Park.find(@note.park_id).image %>" alt="<%= Park.find(@note.park_id).park_name%>" style='height: 100%; width: 100%; object-fit: contain'">
+           <span class="card-title"><%= @note.title%></span>
+         </div>
+         <div class="card-content">
+           <p><%= @note.content%></p>
+         </div>
+         <div class="card-action">
+           <a href="/parks/<%= @note.park_id%>"> More info about this park</a>
+         </div>
+       </div>
+     </div>
+   </div>
+
+   <% end %>
+
+   <%if @note.user = current_user%>
+ <a href="/notes/<%= @note.id %>/edit">Edit</a>
+  <form method="POST" action="/notes/<%= @note.id %>">
+     <input type="hidden" value="DELETE" name="_method">
+     <input type="submit" value="Delete">
+  </form>
+  <%end%>

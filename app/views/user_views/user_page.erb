@@ -13,11 +13,25 @@
       </li>
       <li>
         <div class="collapsible-header"><i class="material-icons">control_point</i>Parks you've been to</div>
-        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+        <div class="collapsible-body">
+          <span><% UserPark.all do |up|%>
+                    <%if up.been_list && up.user_id = current_user.id %>
+                      <p><%=Park.find(up.park_id).park_name%></p>
+                   <%end%>
+                  <%end%>
+         </span>
+         </div>
       </li>
       <li>
         <div class="collapsible-header"><i class="material-icons">control_point</i>Parks on your bucket list</div>
-        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+        <div class="collapsible-body">
+          <span><% UserPark.all do |up|%>
+                  <%if up.bucket_list && up.user_id = current_user.id %>
+                    <p><%=Park.find(up.park_id).park_name%></p>
+                  <%end%>
+                <%end%>
+          </span>
+         </div>
       </li>
       <li>
         <div class="collapsible-header"><i class="material-icons">control_point</i>Edit or delete your profile</div>

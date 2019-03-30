@@ -13,14 +13,12 @@ class UserParksController < ApplicationController
     end
   end
 
-  # GET: /user_parks/5/edit
-  get "/user_parks/:id/edit" do
-    erb :"/user_parks/edit.html"
+  get "/parks/user_parks/:id/edit" do
+    "hello world"
   end
 
-  # PATCH: /user_parks/5
-  patch "/user_parks/:id" do
-    redirect "/user_parks/:id"
+  patch "/parks/user_parks/:id" do
+    redirect '/user_page'
   end
 
   # DELETE: /user_parks/5/delete

@@ -1,19 +1,16 @@
 TO DO:
 
-
-
-BUG placeholders vs value in edit note form?
+validate form inputs
 
 fix death valley image in tux
 
-  -delete/edit userparks?
+***form visibility in parks view - fixing edit routes for userparks***
 
- -user_view page (for viewing/editing their own page)
-  -to edit profile
-  -to delete profile
+user_view page (for viewing/editing their own page)
   -create if condition for no notes/parks
 
-  parks page
+parks page
     -create if condition for no notes/users
 
-  set up sinatra flash https://github.com/SFEley/sinatra-flash
+set up sinatra flash https://github.com/SFEley/sinatra-flash
+  https://github.com/nakajima/rack-flash

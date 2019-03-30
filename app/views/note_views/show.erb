@@ -12,7 +12,7 @@
          </div>
          <div class="card-action">
            <a href="/parks/<%= @note.park_id%>" class="black-text"> <%= Park.find(@note.park_id).park_name%></a>
-            <%if logged_in? && @note.user_id == current_user%>
+            <%if logged_in? && @note.user_id == current_user.id%>
             <br>
             <br>
            <form method="POST" action="/notes/<%= @note.id %>">

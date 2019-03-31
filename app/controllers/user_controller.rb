@@ -1,8 +1,6 @@
 require_relative '../../config/environment'
 
 class UserController < ApplicationController
-
-
   get '/users' do
       erb :'user_views/users'
   end
@@ -19,6 +17,14 @@ class UserController < ApplicationController
       session[:user_id] = @user.id
       redirect "/user_page"
     end
+  end
+
+  get '/been_to' do
+    erb :'user_views/been_to'
+  end
+
+  post '/been_to' do
+    redirect '/user_page'
   end
 
   get '/login' do

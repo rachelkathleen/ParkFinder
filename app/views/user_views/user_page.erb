@@ -1,5 +1,5 @@
 <div class="container white">
-  <h3>Welcome, <%=@user.user_name%></h3>
+  <h3 align="center">Welcome, <%=@user.user_name%></h3>
 
 
   <ul class="collapsible">
@@ -17,7 +17,7 @@
           <span>
                 <% @user.user_parks.each do |up|%>
                     <%if up.been_to %>
-                      <a href="/parks/<%=up.park.id%>"><%=up.park.park_name%></a>
+                      <a href="/parks/<%=up.park_id%>"><%=up.park.park_name%></a>
                    <%end%>
                   <%end%>
          </span>
@@ -50,3 +50,4 @@
         </div>
       </li>
     </ul>
+  </div>

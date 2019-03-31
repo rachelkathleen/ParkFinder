@@ -1,0 +1,13 @@
+<form action="/parks/user_parks/new" method="post">
+  <h3>Where are you going?</h3>
+  <%Park.all.each do |park|%>
+  <label>
+  <input type="checkbox" name="park_id" value="park.id">
+  <span><%=park.park_name%></span><br>
+  </label>
+  <%end%>
+  <input type="hidden" name="user_id" value="<%=current_user.id%>">
+  <input type="hidden" name="bucket_list" value="true">
+  <br>
+  <input class="button" type="submit" value="Onwards">
+</form>

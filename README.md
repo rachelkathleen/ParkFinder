@@ -1,7 +1,7 @@
 TO DO:
 
 
-fix death valley image in tux
+delete bad data from DB (userparks and notes)
 
 ***form visibility in parks view - fixing edit routes for userparks***
 

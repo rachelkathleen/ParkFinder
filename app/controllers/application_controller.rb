@@ -10,7 +10,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
+    if logged_in?
+    redirect '/parks'
+    else
     erb :homepage
+  end
   end
 
   helpers do

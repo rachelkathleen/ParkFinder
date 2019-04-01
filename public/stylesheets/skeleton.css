@@ -1,5 +1,3 @@
-
-
 /*
 * Skeleton V2.0.4
 * Copyright 2014, Dave Gamache
@@ -31,15 +29,12 @@
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .container {
-  background-color: white;
   position: relative;
   width: 100%;
   max-width: 960px;
   margin: 0 auto;
-  padding: 0px 20px;
-  box-sizing:
-  border-box;
-  vertical-align: middle;}
+  padding: 0 20px;
+  box-sizing: border-box; }
 .column,
 .columns {
   width: 100%;
@@ -47,14 +42,14 @@
   box-sizing: border-box; }
 
 /* For devices larger than 400px */
-/* @media (min-width: 400px) {
+@media (min-width: 400px) {
   .container {
     width: 85%;
     padding: 0; }
-} */
+}
 
 /* For devices larger than 550px */
-/* @media (min-width: 550px) {
+@media (min-width: 550px) {
   .container {
     width: 80%; }
   .column,
@@ -62,7 +57,7 @@
     margin-left: 4%; }
   .column:first-child,
   .columns:first-child {
-    margin-left: 0; } */
+    margin-left: 0; }
 
   .one.column,
   .one.columns                    { width: 4.66666666667%; }
@@ -343,7 +338,7 @@ td:last-child {
 /* Spacing
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 button,
-.button-primary {
+.button {
   margin-bottom: 1rem; }
 input,
 textarea,
@@ -383,41 +378,3 @@ hr {
   margin-bottom: 3.5rem;
   border-width: 0;
   border-top: 1px solid #E1E1E1; }
-
-
-/* Clearing
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-/* Self Clearing Goodness */
-.container:after,
-.row:after,
-.u-cf {
-  content: "";
-  display: table;
-  clear: both; }
-
-
-/* Media Queries
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-/*
-Note: The best way to structure the use of media queries is to create the queries
-near the relevant code. For example, if you wanted to change the styles for buttons
-on small devices, paste the mobile query code up in the buttons section and style it
-there.
-*/
-
-
-/* Larger than mobile */
-@media (min-width: 400px) {}
-
-/* Larger than phablet (also point when grid becomes active) */
-@media (min-width: 550px) {}
-
-/* Larger than tablet */
-@media (min-width: 750px) {}
-
-/* Larger than desktop */
-@media (min-width: 1000px) {}
-
-/* Larger than Desktop HD */
-@media (min-width: 1200px) {}

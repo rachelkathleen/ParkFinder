@@ -4,11 +4,11 @@
   <div class="row">
     <div class="six columns">
       <label for="NoteTitle">Title</label>
-      <input class="u-full-width" type="text" name="title">
+      <input class="u-full-width" type="text" name="title" required>
     </div>
     <div class="six columns">
       <label for="ParkInput">Select a park</label>
-      <select class="u-full-width" name="park_id" style="display: block;">
+      <select class="u-full-width" name="park_id" style="display: block;" required>
         <%Park.all.each do |park|%>
           <option name="park_id" value="<%=park.id%>"><%=park.park_name%></option> 
         <%end%>
@@ -16,7 +16,7 @@
     </div>
   </div>
   <label for="NoteContent">Content</label>
-  <textarea class="u-full-width" placeholder="Share a tip, your favorite trail - or anything else you'd like to share!" name="content"></textarea>
+  <textarea class="u-full-width" placeholder="Share a tip, your favorite trail - or anything else you'd like to share!" name="content" required></textarea>
   <input type="hidden" name="user_id" value="<%=current_user.id%>">
   <input class="button" type="submit" value="Submit">
 </form>

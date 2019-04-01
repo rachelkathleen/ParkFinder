@@ -1,6 +1,5 @@
 TO DO:
 
-validate form inputs
 
 fix death valley image in tux
 

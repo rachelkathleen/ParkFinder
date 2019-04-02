@@ -2,6 +2,8 @@ require_relative '../../config/environment'
 
 class NoteController < ApplicationController
 
+  use Rack::Flash
+
   get '/notes' do
       @notes = Note.all
       erb :'note_views/notes'

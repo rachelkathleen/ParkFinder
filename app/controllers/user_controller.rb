@@ -1,6 +1,8 @@
 require_relative '../../config/environment'
 
 class UserController < ApplicationController
+use Rack::Flash
+
   get '/users' do
       erb :'user_views/users'
   end
@@ -10,12 +12,13 @@ class UserController < ApplicationController
   end
 
   post "/signup" do
-    if params[:user_name] == "" || params[:password] == "" || params[:email] == ""
-      redirect '/failure'
-    else
-      @user = User.create(params)
+      @user = User.new(params)
+    if @user.save
       session[:user_id] = @user.id
       redirect "/user_page"
+    else
+      flash.now[:error]=@user.errors.full_messages
+      erb :'user_views/signup'
     end
   end
 
@@ -33,11 +36,14 @@ class UserController < ApplicationController
 
   post "/login" do
     user = User.find_by(:user_name => params[:user_name])
-    session[:user_id] = user.id
+    # binding.pry
     if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
       redirect "/user_page"
     else
-      redirect "/failure"
+      binding.pry
+      flash.now[:error]="Your username or password do not match"
+      erb :'user_views/login'
     end
   end
 
@@ -85,7 +91,7 @@ class UserController < ApplicationController
         up.destroy
       end
     end
-    
+
     if @user.delete
       redirect '/'
     else

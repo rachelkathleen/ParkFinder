@@ -73,6 +73,7 @@ class UserController < ApplicationController
 
   delete '/users/:id' do
     @user = current_user
+    session.clear
     if @user.delete
       redirect '/'
     else

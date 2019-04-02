@@ -6,6 +6,9 @@
       <li>
         <div class="collapsible-header"><i class="material-icons">control_point</i>Your notes</div>
         <div class="collapsible-body"><span>
+          <% if @user.notes == 0 %>
+            <p>Add a park to your profile to write your first note!</p>
+            <%end%>
           <%@user.notes.each do |note|%>
             <a href="/notes/<%=note.id%>"><%=note.title%></a><br>
           <%end%>

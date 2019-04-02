@@ -1,10 +1,11 @@
 <% if @note.park_id %>
 <div class="row">
+  <p align="center"><a href="/parks/<%=@note.park_id%>"><%= Park.find(@note.park_id).park_name%> National Park</a></p>
    <div class="col s12 m12 l12">
       <div class="card">
          <div class="card-image">
             <img src="<%= Park.find(@note.park_id).image %>" alt="<%= Park.find(@note.park_id).park_name%>" style='height: 100%; width: 100%; object-fit: contain'">
-            <span class="card-title"><%= Park.find(@note.park_id).park_name%></span>
+            <span class="card-title"></span>
          </div>
          <div class="card-content">
             <p><%= @note.title%></p>

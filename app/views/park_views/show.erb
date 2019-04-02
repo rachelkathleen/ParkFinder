@@ -53,8 +53,10 @@
             <span>
                <!-- want to show first form if the current_user doesn't have @park as been_to OR bucket_list -->
                <!-- right now can make multiple UP that are identical, and this always shows -->
-               <% current_user.user_parks.each do |up| %>
-               <%if up.park_id != @park.id %>
+
+
+
+
                <form action="/parks/user_parks/new" method="post">
                   <input type="hidden" name="user_id" value="<%=current_user.id%>">
                   <input type="hidden" name="park_id" value="<%=@park.id%>">
@@ -71,39 +73,40 @@
                      </label>
                   </p>
                   <input type="submit" value="Add to list">
-                  <% end %>
-                  <% end %>
+
+
                </form>
                <!-- want to show this form if current_user had @park in bucket_list -->
                <!-- the route isn't working - need help -->
                <% @park.user_parks.each do |up|%>
                <%if up.user_id == current_user.id && up.bucket_list %>
-               <form action="/parks/user_parks/:id" method="post">
+               <form action="/parks/user_parks/<%=up.id%>" method="post">
                <!-- broken route -->
                <input type='hidden' value='PATCH' name='_method'>
+               <input type="hidden" name="bucket_list" value="false">
                <p>
                   <label>
                   <input type="checkbox" name="been_to"/>
                   <span>Move to been list?</span>
                   </label>
-                  <input type="hidden" name="bucket_list" value="false">
+
                   <input type="submit" value="Add to list">
                   <br>
                   <br>
                   <% end %>
                   <% end %>
                   <% @park.user_parks.each do |up|%>
-                  <%if up.user_id == current_user.id && up.been_to %>
-               <form action="/parks/user_parks/:id" method="post">
+                  <%if up.user_id == current_user.id && up.been_to || up.bucket_list%>
+               <form action="/parks/user_parks/<%=up.id%>" method="post">
                <!-- broken route -->
-               <input type='hidden' value='PATCH' name='_method'>
+               <input type='hidden' value='DELETE' name='_method'>
                <p>
-                  <label>
-                  <input type="checkbox" name="been_to"/>
-                  <span>Remove from lists?</span>
-                  </label>
-                  <input type="hidden" name="bucket_list" value="false">
-                  <input type="hidden" name="been_to" value="false">
+
+                 <label>
+
+                 <span>Remove from Profile?</span>
+                 </label>
+
                   <input type="submit" value="Remove">
                   <% end %>
                   <% end %>

@@ -62,7 +62,6 @@ class UserController < ApplicationController
   end
 
   patch '/users/:id' do
-    #condition for page being patched belongs to current_user
     @user = current_user
     if @user.update(user_name: params[:user_name], email: params[:email], password: params[:password])
         redirect "/user_page"

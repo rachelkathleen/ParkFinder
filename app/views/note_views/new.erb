@@ -9,6 +9,7 @@
     <div class="six columns">
       <label for="ParkInput">Select a park</label>
       <select class="u-full-width" name="park_id" style="display: block;" required>
+        <option selected disabled hidden style='display: none' value=''></option>
         <%Park.all.each do |park|%>
           <option name="park_id" value="<%=park.id%>"><%=park.park_name%></option> 
         <%end%>

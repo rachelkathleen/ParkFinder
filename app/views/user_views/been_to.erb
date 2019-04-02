@@ -1,21 +1,16 @@
+
 <form action="/parks/user_parks/new" method="post">
   <h3>Where have you been?</h3>
   <%Park.all.each do |park|%>
+  <% unless current_user.user_parks.find_by(park_id: park.id)%>
   <label>
-  <input type="checkbox" name="park_id" value="park.id">
+  <input type="checkbox" name="park_ids[]" value="<%=park.id%>">
   <span><%=park.park_name%></span><br>
   </label>
+  <%end%>
   <%end%>
   <input type="hidden" name="user_id" value="<%=current_user.id%>">
   <input type="hidden" name="been_to" value="true">
   <br>
-  <input class="button" type="submit" value="Onwards">
+  <input class="button button-primary" type="submit" value="Submit">
 </form>
-
-<%UserPark.all.each do |park|%>
-ID: <%=park.id%><br>
-USER: <%=park.user_id%><br>
-PARK: <%=park.park_id%><br>
-BEEN TO: <%=park.been_to%><br>
-BUCKET LIST: <%=park.bucket_list%> <br><br>
-<%end%>

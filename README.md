@@ -1,8 +1,6 @@
 TO DO:
 
 
-fix death valley image in tux
-
 ***form visibility in parks view - fixing edit routes for userparks***
 
 user_view page (for viewing/editing their own page)

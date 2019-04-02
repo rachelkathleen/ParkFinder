@@ -1,8 +1,7 @@
-<div class="error_message">
   <% if flash[:error]%>
-    <%=flash[:error]%>
+    <div class="error_message"><%=flash[:error]%></div>
   <% end %>
-</div>
+
 
 <h3>Login</h3>
 <form action="/login" method="POST">

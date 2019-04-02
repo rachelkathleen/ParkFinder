@@ -2,14 +2,14 @@
 <div class="hero-image" img src="<%= @park.image%>" alt="<%= @park.park_name%>" style='height: 100%; width: 100%; object-fit: contain'">
 <div class="hero-text">
    <h1 style="color:#33C3F0" align="center"><%= @park.park_name%></h1>
-   <p style="color:#33C3F0" align="center"><%= @park.headline%></p>
+   <p style="color:#888" align="center"><%= @park.headline%></p>
 </div>
 </div
 <div class="container white">
    <ul class="collapsible">
       <li>
          <div class="collapsible-header"><i class="material-icons">control_point</i>Park description</div>
-         <div class="collapsible-body"><span><%= @park.description%><br><br><a href="<%= @park.website%>">NPS Website</a></span></div>
+         <div class="collapsible-body"><span><%= @park.description%><br><br><a class="button" href="<%= @park.website%>">NPS Website</a></span></div>
       </li>
       <%if logged_in?%>
       <li>
@@ -17,29 +17,26 @@
          <div class="collapsible-body">
             <span><%Note.all.each do |note|%>
             <% if note.park_id == @park.id%>
-            <a href="/notes/<%=note.id%>"><%=note.title%></a><br>
+            <div class="chip"><a href="/notes/<%=note.id%>"><%=note.title%></a> <%=User.find(note.user_id).user_name%></div>
             <%end%>
             <%end%>
-            <br><a href="/notes/new">Write a new note</a></span>
+            <br><br><a class="button" href="/notes/new">Write a new note</a></span>
          </div>
       </li>
       <li>
-         <div class="collapsible-header"><i class="material-icons">control_point</i>Vistors</div>
+         <div class="collapsible-header"><i class="material-icons">control_point</i>Users who have been to <%=@park.park_name%></div>
          <div class="collapsible-body">
             <span>
-              <% if @park.user_parks.size == 0 %>
-              <p>It looks like none of our users have been to <%=@park.park_name%> yet!</p>
-              <%end%>
                <% @park.user_parks.each do |up|%>
                <%if up.been_to%>
-               <p><%=up.user.user_name%></p>
+               <div class="chip"><%=up.user.user_name%> </div>
                <%end%>
                <%end%>
             </span>
          </div>
       </li>
       <li>
-         <div class="collapsible-header"><i class="material-icons">control_point</i>Users who want to visit</div>
+         <div class="collapsible-header"><i class="material-icons">control_point</i>Users who want to visit <%=@park.park_name%></div>
          <div class="collapsible-body">
             <span>
               <% if @park.user_parks.size == 0 %>
@@ -47,14 +44,14 @@
               <%end%>
                <% @park.user_parks.each do |up|%>
                <%if up.bucket_list%>
-               <p><%=up.user.user_name%></p>
+               <div class="chip"><%=up.user.user_name%></div>
                <%end%>
                <%end%>
             </span>
          </div>
       </li>
       <li>
-         <div class="collapsible-header"><i class="material-icons">control_point</i>Add this park to your profile</div>
+         <div class="collapsible-header"><i class="material-icons">control_point</i>Add <%=@park.park_name%> to your profile</div>
          <div class="collapsible-body">
             <span>
                <!-- want to show first form if the current_user doesn't have @park as been_to OR bucket_list -->

@@ -1,8 +1,10 @@
-<% if flash[:error]%>
-  <% flash[:error].each do |error|%>
-    <h4><%= error%></h4>
+  <% if flash[:error]%>
+    <% flash[:error].each do |error|%>
+    <div class="error_message"><%= error%></div>
+    <% end %>
   <% end %>
-<% end %>
+
+
 
 
 <h3>Create a profile</h3>

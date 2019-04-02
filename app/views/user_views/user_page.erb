@@ -1,5 +1,9 @@
+
 <div class="container white">
-  <h3 align="center">Welcome, <%=@user.user_name%></h3>
+  <div class="hero-text">
+    <h3 style="color:#888" align="center">Welcome <%=@user.user_name%>!</h3>
+  </div>
+
 
 
   <ul class="collapsible">
@@ -7,9 +11,9 @@
         <div class="collapsible-header"><i class="material-icons">control_point</i>Your notes</div>
         <div class="collapsible-body"><span>
           <%@user.notes.each do |note|%>
-            <a href="/notes/<%=note.id%>"><%=note.title%></a><br>
+          <div class="chip"><a href="/notes/<%=note.id%>"><%=note.title%></a> </div>
           <%end%>
-          <br><a href="/notes/new">Write a new note</a></span></div>
+          <br><br><a class="button"href="/notes/new">Write a new note</a></span></div>
       </li>
       <li>
         <div class="collapsible-header"><i class="material-icons">control_point</i>Parks you've been to</div>
@@ -17,7 +21,9 @@
           <span>
                 <% @user.user_parks.each do |up|%>
                     <%if up.been_to %>
+                    <div class="chip">
                       <a href="/parks/<%=up.park_id%>"><%=up.park.park_name%></a>
+                    </div>
                    <%end%>
                   <%end%>
          </span>
@@ -28,7 +34,7 @@
         <div class="collapsible-body">
           <span><% @user.user_parks.each do |up|%>
                     <%if up.bucket_list%>
-                    <a href="/parks/<%=up.park.id%>"><%=up.park.park_name%></a>
+                    <div class="chip"><a href="/parks/<%=up.park.id%>"><%=up.park.park_name%></a></div>
                    <%end%>
                   <%end%>
           </span>

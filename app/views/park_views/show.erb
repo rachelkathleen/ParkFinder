@@ -9,7 +9,7 @@
    <ul class="collapsible">
       <li>
          <div class="collapsible-header"><i class="material-icons">control_point</i>Park description</div>
-         <div class="collapsible-body"><span><%= @park.description%><br><br><a href="><%= @park.website%></">NPS Website</a></span></div>
+         <div class="collapsible-body"><span><%= @park.description%><br><br><a href="<%= @park.website%>">NPS Website</a></span></div>
       </li>
       <%if logged_in?%>
       <li>

@@ -26,7 +26,7 @@ get_urls.each do |url|
                   headline: page.css("h1").text,
                   description: page.css("p").text.split("Last updated")[0],
                   state: page.css(".region").text,
-                  website: NPS+url,
+                  website: "https://www.nps.gov"+url,
                   image: NPS+park_image = page.css(".Hero div div").attr("style").value.split("'/")[1].split("?")[0]
                   }
 end

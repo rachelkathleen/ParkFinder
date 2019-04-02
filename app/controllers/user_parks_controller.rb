@@ -7,22 +7,34 @@ class UserParksController < ApplicationController
   post '/parks/user_parks/new' do
     @userpark = UserPark.new(params)
     if @userpark.save
-        redirect "/user_page"
+        redirect "/notes/new"
     else
         erb :failure
     end
   end
 
-  get "/parks/user_parks/:id/edit" do
-    "hello world"
+
+  get '/notes/:id/edit' do
+    @up = UserPark.find(params[:id])
+    erb :'note_views/edit'
   end
 
-  patch "/parks/user_parks/:id" do
-    redirect '/user_page'
+  patch '/parks/user_parks/:id' do
+    @up = UserPark.find(params[:id])
+    if @up.update(been_to: params[:been_to], bucket_list: params[:bucket_list])
+      redirect "/user_page"
+    else
+      erb :'user_views/failure'
+    end
   end
 
-  # DELETE: /user_parks/5/delete
-  delete "/user_parks/:id/delete" do
-    redirect "/user_parks"
+  delete '/parks/user_parks/:id' do
+    @up = UserPark.find(params[:id])
+
+    if @up.delete
+      redirect '/user_page'
+    else
+      erb :'user_views/failure'
+    end
   end
 end

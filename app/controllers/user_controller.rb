@@ -73,6 +73,19 @@ class UserController < ApplicationController
   delete '/users/:id' do
     @user = current_user
     session.clear
+
+    UserPark.all.each do |up|
+      if up.user_id == @user.id
+        up.destroy
+      end
+    end
+
+    Note.all.each do |note|
+      if note.user_id == @user.id
+        up.destroy
+      end
+    end
+    
     if @user.delete
       redirect '/'
     else

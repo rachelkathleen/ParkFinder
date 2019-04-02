@@ -16,12 +16,12 @@ use Rack::Flash
         redirect "/notes/new"
       else
     @userpark = UserPark.new(params)
-    if @userpark.save
-        redirect "/notes/new"
-    else
-        erb :failure
+      if @userpark.save
+          redirect "/notes/new"
+      else
+          erb :failure
+      end
     end
-  end
   end
 
   patch '/parks/user_parks/:id' do

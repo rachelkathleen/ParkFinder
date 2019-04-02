@@ -6,9 +6,6 @@
       <li>
         <div class="collapsible-header"><i class="material-icons">control_point</i>Your notes</div>
         <div class="collapsible-body"><span>
-          <% if @user.notes == 0 %>
-            <p>Add a park to your profile to write your first note!</p>
-            <%end%>
           <%@user.notes.each do |note|%>
             <a href="/notes/<%=note.id%>"><%=note.title%></a><br>
           <%end%>
@@ -40,13 +37,14 @@
       <li>
         <div class="collapsible-header"><i class="material-icons">control_point</i>Edit or delete your profile</div>
         <div class="collapsible-body">
+
               <form method="POST" action="/users/<%= @user.id %>">
                 <div class="six columns">
-                <a class="button black-text"href="/users/<%= @user.id %>/edit">Edit</a>
+                <a class="button button-primary" href="/users/<%= @user.id %>/edit">Edit</a>
                  </div>
                  <div class="six columns">
                  <input type="hidden" value="DELETE" name="_method">
-                 <input type="submit" value="Delete">
+                 <input class="button button-primary" type="submit" value="Delete">
                    </div>
               </form>
               <br>

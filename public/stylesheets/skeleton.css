@@ -1,33 +1,44 @@
-/*
-* Skeleton V2.0.4
-* Copyright 2014, Dave Gamache
-* www.getskeleton.com
-* Free to use under the MIT license.
-* http://www.opensource.org/licenses/mit-license.php
-* 12/29/2014
-*/
-
-
-/* Table of contents
-––––––––––––––––––––––––––––––––––––––––––––––––––
-- Grid
-- Base Styles
-- Typography
-- Links
-- Buttons
-- Forms
-- Lists
-- Code
-- Tables
-- Spacing
-- Utilities
-- Clearing
-- Media Queries
-*/
-/* Error Messages
+.hero-text{
+  border: 1px solid #888;}
+/* Flash Messages
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.error_message
+.error_message {
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: black;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 750;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid red;
+  cursor: pointer;
+  box-sizing: border-box; }
 
+  .success_message {
+    display: inline-block;
+    height: 38px;
+    padding: 0 30px;
+    color: black;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 750;
+    line-height: 38px;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: transparent;
+    border-radius: 4px;
+    border: 1px solid #33C3F0;
+    cursor: pointer;
+    box-sizing: border-box; }
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .container {

@@ -5,4 +5,7 @@ class User < ActiveRecord::Base
   has_many :user_parks
   has_many :parks, through: :user_parks
 
+  validates :user_name, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
+
 end

@@ -1,4 +1,12 @@
+<% if flash[:error]%>
+  <% flash[:error].each do |error|%>
+    <h4><%= error%></h4>
+  <% end %>
+<% end %>
+
+
 <h3>Create a profile</h3>
+
 <form action="/signup" method="POST">
    <div class="row">
    <div class="twelve columns">
@@ -13,5 +21,5 @@
       <label for="exampleEmailInput">Password</label>
       <input class="u-full-width" type="password" name="password" required>
    </div>
-   <input class="button button-primary" type="submit" value="Submit">
+   <input class="button button-primary" type="submit" value="Submit" required>
 </form>

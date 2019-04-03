@@ -12,6 +12,7 @@ gem 'rack-flash3'
 gem 'pg', '0.20'
 gem 'rails_12factor'
 gem 'foreman'
+gem 'nokogiri'
 
 group :test do
   gem 'rspec'

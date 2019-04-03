@@ -14,10 +14,14 @@ class ApplicationController < Sinatra::Base
 
   get "/" do
     if logged_in?
-    redirect '/parks'
+      redirect '/parks'
     else
-    erb :homepage
+      erb :homepage
+    end
   end
+
+  get '/about' do
+    erb :about
   end
 
   helpers do

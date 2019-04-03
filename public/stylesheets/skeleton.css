@@ -1,3 +1,4 @@
+
 .hero-text{
   border: 1px solid #888;}
 /* Flash Messages
@@ -300,6 +301,7 @@ label > .label-body {
 
 /* Lists
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+.list,
 ul {
   list-style: circle inside; }
 ol {

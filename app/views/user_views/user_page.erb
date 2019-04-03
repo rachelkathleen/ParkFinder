@@ -60,3 +60,7 @@
       </li>
     </ul>
   </div>
+
+  <%unless logged_in?%>
+  <p align="center"><a class="button" href="/login">Log in to view this page</a></p>
+  <% end%>

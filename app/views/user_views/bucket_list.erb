@@ -1,6 +1,10 @@
+<%if logged_in?%>
 
+  <div class="hero-text">
+    <h3 style="color:#888" align="center">Where are you going?</h3>
+  </div>
 <form action="/parks/user_parks/new" method="post">
-  <h3>Where are you going?</h3>
+
   <%Park.all.each do |park|%>
   <% unless current_user.user_parks.find_by(park_id: park.id)%>
   <label>
@@ -14,3 +18,8 @@
   <br>
   <input class="button button-primary" type="submit" value="Submit">
 </form>
+<% end%>
+
+<%unless logged_in?%>
+<p align="center"><a class="button" href="/login">Log in to view this page</a></p>
+<% end%>

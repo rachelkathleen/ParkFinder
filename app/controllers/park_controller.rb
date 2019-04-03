@@ -1,6 +1,7 @@
 require_relative '../../config/environment'
 
 class ParkController < ApplicationController
+
   use Rack::Flash
 
   get '/parks' do

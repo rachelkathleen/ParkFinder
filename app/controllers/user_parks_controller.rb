@@ -1,6 +1,7 @@
 class UserParksController < ApplicationController
 
 use Rack::Flash
+
   get '/parks/user_parks/new' do
     erb :'user_parks/new'
   end

@@ -1,6 +1,6 @@
-<% if @note.park_id %>
+
 <div class="row">
-  <p align="center"><a href="/parks/<%=@note.park_id%>"><%= Park.find(@note.park_id).park_name%> National Park</a></p>
+  <p align="center"><a style="color:#888" href="/parks/<%=@note.park_id%>"><%= Park.find(@note.park_id).park_name%> National Park</a></p>
    <div class="col s12 m12 l12">
       <div class="card">
          <div class="card-image">
@@ -28,4 +28,3 @@
       </div>
    </div>
 </div>
-<%end%>

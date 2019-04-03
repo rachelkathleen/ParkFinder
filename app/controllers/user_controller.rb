@@ -1,6 +1,7 @@
 require_relative '../../config/environment'
 
 class UserController < ApplicationController
+
 use Rack::Flash
 
   get '/users' do
@@ -36,7 +37,6 @@ use Rack::Flash
 
   post "/login" do
     user = User.find_by(:user_name => params[:user_name])
-    # binding.pry
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect "/user_page"
@@ -69,7 +69,6 @@ use Rack::Flash
   patch '/users/:id' do
     @user = current_user
     if @user.update(user_name: params[:user_name], email: params[:email], password: params[:password])
-      flash.now[:success]="Your profile has been editted"
         redirect "/user_page"
     else
         erb :'user_views/edit'

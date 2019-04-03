@@ -1,4 +1,4 @@
-<h3>Editing <%= @note.title %></h3>
+<h3>Editting <%= @note.title %></h3>
 <form method="POST"  action="/notes/<%= @note.id %>">
    <input type='hidden' value='PATCH' name='_method'>
    <div class="row">

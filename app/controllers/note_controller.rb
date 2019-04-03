@@ -15,7 +15,6 @@ class NoteController < ApplicationController
 
   post '/notes/new' do
     @note = Note.new(params)
-    # current_user.notes.build
     if @note.save
         redirect "/notes/#{@note.id}"
     else
@@ -44,7 +43,6 @@ class NoteController < ApplicationController
 
   delete '/notes/:id' do
     @note = Note.find(params[:id])
-
     if @note.delete
       redirect '/user_page'
     else

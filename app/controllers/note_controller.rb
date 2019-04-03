@@ -46,7 +46,7 @@ class NoteController < ApplicationController
     @note = Note.find(params[:id])
 
     if @note.delete
-      redirect '/notes'
+      redirect '/user_page'
     else
       redirect "/notes/#{@note.id}"
     end

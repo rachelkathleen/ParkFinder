@@ -93,7 +93,19 @@
                <% end %>
                <% end %>
                <% @park.user_parks.each do |up|%>
-               <%if up.user_id == current_user.id && up.been_to || up.bucket_list%>
+               <%if up.user_id == current_user.id && up.been_to%>
+               <form action="/parks/user_parks/<%=up.id%>" method="post">
+                  <input type='hidden' value='DELETE' name='_method'>
+                  <p>
+                     <label>
+                     <span>Remove from Profile?</span>
+                     </label>
+                     <input type="submit" value="Remove">
+               </form>
+               <% end %>
+               <% end %>
+               <% @park.user_parks.each do |up|%>
+               <%if up.user_id == current_user.id && up.bucket_list%>
                <form action="/parks/user_parks/<%=up.id%>" method="post">
                   <input type='hidden' value='DELETE' name='_method'>
                   <p>

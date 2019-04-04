@@ -14,7 +14,7 @@ use Rack::Flash
         bucket_list = params[:bucket_list]
         @userpark = UserPark.create(user_id: user_id, park_id: park_id, been_to: been_to, bucket_list: bucket_list)
         end
-        redirect "/notes/new"
+        redirect "/user_page"
       else
     @userpark = UserPark.new(params)
       if @userpark.save

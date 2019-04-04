@@ -13,6 +13,7 @@ gem 'pg', '0.20'
 gem 'rails_12factor'
 gem 'foreman'
 gem 'nokogiri'
+gem 'tux'
 
 group :test do
   gem 'rspec'
@@ -24,6 +25,5 @@ end
 group :development do
   gem 'sqlite3', '~> 1.3.6'
   gem 'shotgun'
-  gem 'tux'
   gem 'pry'
 end

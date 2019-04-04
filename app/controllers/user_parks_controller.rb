@@ -18,7 +18,7 @@ use Rack::Flash
       else
     @userpark = UserPark.new(params)
       if @userpark.save
-          redirect "/notes/new"
+          redirect "/user_page"
       else
           erb :failure
       end

@@ -28,11 +28,16 @@ class NoteController < ApplicationController
   end
 
   get '/notes/:id/edit' do
-    @note = Note.find(params[:id])
-    if @note.user_id == current_user.id
-      erb :'note_views/edit'
+    if logged_in?
+      @note = Note.find(params[:id])
+      if @note.user_id == current_user.id
+        erb :'note_views/edit'
+      else
+        redirect 'user_page'
+      end
     else
-      redirect 'user_page'
+      redirect '/login'
+    end
   end
 
   patch '/notes/:id' do
@@ -45,11 +50,15 @@ class NoteController < ApplicationController
   end
 
   delete '/notes/:id' do
-    @note = Note.find(params[:id])
-    if @note.delete
-      redirect '/user_page'
-    else
-      redirect "/notes/#{@note.id}"
+      @note = Note.find(params[:id])
+      if !logged_in? || @note.user_id == current_user.id
+        redirect '/'
+      else
+        if @note.delete
+          redirect '/user_page'
+        else
+          redirect "/notes/#{@note.id}"
+      end
     end
   end
 end

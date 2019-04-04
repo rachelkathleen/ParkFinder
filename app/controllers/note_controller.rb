@@ -5,12 +5,20 @@ class NoteController < ApplicationController
   use Rack::Flash
 
   get '/notes' do
+    if logged_in?
       @notes = Note.all
       erb :'note_views/notes'
+    else
+      redirect '/'
+    end
   end
 
   get '/notes/new' do
-    erb :'note_views/new'
+    if logged_in?
+      erb :'note_views/new'
+    else
+      redirect '/'
+    end
   end
 
   post '/notes/new' do
@@ -23,8 +31,12 @@ class NoteController < ApplicationController
   end
 
   get '/notes/:id' do
-    @note = Note.find(params[:id])
-    erb :'note_views/show'
+    if logged_in?
+      @note = Note.find(params[:id])
+      erb :'note_views/show'
+    else
+      redirect '/'
+    end
   end
 
   get '/notes/:id/edit' do

@@ -29,7 +29,10 @@ class NoteController < ApplicationController
 
   get '/notes/:id/edit' do
     @note = Note.find(params[:id])
-    erb :'note_views/edit'
+    if @note.user_id == current_user.id
+      erb :'note_views/edit'
+    else
+      redirect 'user_page'
   end
 
   patch '/notes/:id' do

@@ -7,7 +7,7 @@ Bundler.require(:default, ENV['SINATRA_ENV'])
 #   :adapter => "sqlite3",
 #   :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
 # )
-#
+
 set :database_file, "./database.yml"
 
 require './app/controllers/application_controller'

@@ -4,7 +4,7 @@ Made as the portfolio project for the Sinatra section of the Flatiron School onl
 The app allows users to create an account to keep track of national parks that they have been to, and ones they would like to go to.
 Users can add and remove parks from their profiles, write notes about parks, view other users' notes.
 
-### Installing
+## Installing
 
 https://parkfinder-sinatra-project.herokuapp.com
 

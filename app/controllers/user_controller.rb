@@ -1,6 +1,9 @@
 require_relative '../../config/environment'
 
 class UserController < ApplicationController
+
+use Rack::Flash
+
   get '/users' do
       erb :'user_views/users'
   end
@@ -10,12 +13,13 @@ class UserController < ApplicationController
   end
 
   post "/signup" do
-    if params[:user_name] == "" || params[:password] == "" || params[:email] == ""
-      redirect '/failure'
-    else
-      @user = User.create(params)
+      @user = User.new(params)
+    if @user.save
       session[:user_id] = @user.id
       redirect "/user_page"
+    else
+      flash.now[:error]=@user.errors.full_messages
+      erb :'user_views/signup'
     end
   end
 
@@ -33,11 +37,12 @@ class UserController < ApplicationController
 
   post "/login" do
     user = User.find_by(:user_name => params[:user_name])
-    session[:user_id] = user.id
     if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
       redirect "/user_page"
     else
-      redirect "/failure"
+      flash.now[:error]="Your username or password do not match"
+      erb :'user_views/login'
     end
   end
 
@@ -62,7 +67,6 @@ class UserController < ApplicationController
   end
 
   patch '/users/:id' do
-    #condition for page being patched belongs to current_user
     @user = current_user
     if @user.update(user_name: params[:user_name], email: params[:email], password: params[:password])
         redirect "/user_page"
@@ -74,6 +78,19 @@ class UserController < ApplicationController
   delete '/users/:id' do
     @user = current_user
     session.clear
+
+    UserPark.all.each do |up|
+      if up.user_id == @user.id
+        up.destroy
+      end
+    end
+
+    Note.all.each do |note|
+      if note.user_id == @user.id
+        up.destroy
+      end
+    end
+
     if @user.delete
       redirect '/'
     else

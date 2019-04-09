@@ -1,15 +1,15 @@
 <% Park.all.each do |park| %>
 <div class="row">
-  <div class="col s12 m12">
-    <div class="card">
-      <div class="card-image">
-        <img src="<%= park.image%>">
-        <span class="card-title"></span>
+   <div class="col s12 m12">
+      <div class="card">
+         <div class="card-image">
+            <img src="<%= park.image%>">
+            <span class="card-title"></span>
+         </div>
+         <div class="card-action" align="center">
+            <a style="color:white" class="button button-primary" href="/parks/<%=park.id%>"><%=park.park_name%>, <%=park.state%></a>
+         </div>
       </div>
-      <div class="card-action">
-        <a style="color:#33C3F0" href="/parks/<%=park.id%>"><%=park.park_name%>, <%=park.state%></a>
-      </div>
-    </div>
-  </div>
+   </div>
 </div>
 <% end %>

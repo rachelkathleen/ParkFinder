@@ -1,13 +1,25 @@
+<%if logged_in?%>
+
+  <div class="hero-text">
+    <h3 style="color:#888" align="center">Where are you going?</h3>
+  </div>
 <form action="/parks/user_parks/new" method="post">
-  <h3>Where are you going?</h3>
+
   <%Park.all.each do |park|%>
+  <% unless current_user.user_parks.find_by(park_id: park.id)%>
   <label>
-  <input type="checkbox" name="park_id" value="park.id">
+  <input type="checkbox" name="park_ids[]" value="<%=park.id%>">
   <span><%=park.park_name%></span><br>
   </label>
+  <%end%>
   <%end%>
   <input type="hidden" name="user_id" value="<%=current_user.id%>">
   <input type="hidden" name="bucket_list" value="true">
   <br>
-  <input class="button" type="submit" value="Onwards">
+  <input class="button button-primary" type="submit" value="Submit">
 </form>
+<% end%>
+
+<%unless logged_in?%>
+<p align="center"><a class="button" href="/login">Log in to view this page</a></p>
+<% end%>

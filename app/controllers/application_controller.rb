@@ -1,6 +1,9 @@
 require './config/environment'
+require 'rack-flash'
 
 class ApplicationController < Sinatra::Base
+
+  use Rack::Flash
 
   configure do
     set :public_folder, 'public'
@@ -9,12 +12,17 @@ class ApplicationController < Sinatra::Base
     set :session_secret, 'parks'
   end
 
+
   get "/" do
     if logged_in?
-    redirect '/parks'
+      redirect '/parks'
     else
-    erb :homepage
+      erb :homepage
+    end
   end
+
+  get '/about' do
+    erb :about
   end
 
   helpers do

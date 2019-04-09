@@ -1,18 +1,19 @@
+
 <div class="container white">
-  <h3 align="center">Welcome, <%=@user.user_name%></h3>
+  <div class="hero-text">
+    <h3 style="color:#888" align="center">Welcome <%=@user.user_name%>!</h3>
+  </div>
+
 
 
   <ul class="collapsible">
       <li>
         <div class="collapsible-header"><i class="material-icons">control_point</i>Your notes</div>
         <div class="collapsible-body"><span>
-          <% if @user.notes == 0 %>
-            <p>Add a park to your profile to write your first note!</p>
-            <%end%>
           <%@user.notes.each do |note|%>
-            <a href="/notes/<%=note.id%>"><%=note.title%></a><br>
+          <div class="chip"><a href="/notes/<%=note.id%>"><%=note.title%></a> </div>
           <%end%>
-          <br><a href="/notes/new">Write a new note</a></span></div>
+          <br><br><a class="button"href="/notes/new">Write a new note</a></span></div>
       </li>
       <li>
         <div class="collapsible-header"><i class="material-icons">control_point</i>Parks you've been to</div>
@@ -20,9 +21,12 @@
           <span>
                 <% @user.user_parks.each do |up|%>
                     <%if up.been_to %>
+                    <div class="chip">
                       <a href="/parks/<%=up.park_id%>"><%=up.park.park_name%></a>
+                    </div>
                    <%end%>
                   <%end%>
+                  <br><br><a class="button" href="/user_parks/been_to">Where else have you been?</a>
          </span>
          </div>
       </li>
@@ -31,9 +35,10 @@
         <div class="collapsible-body">
           <span><% @user.user_parks.each do |up|%>
                     <%if up.bucket_list%>
-                    <a href="/parks/<%=up.park.id%>"><%=up.park.park_name%></a>
+                    <div class="chip"><a href="/parks/<%=up.park.id%>"><%=up.park.park_name%></a></div>
                    <%end%>
                   <%end%>
+                  <br><br><a class="button" href="/user_parks/bucket_list">Where else are you going?</a>
           </span>
          </div>
       </li>
@@ -43,11 +48,11 @@
 
               <form method="POST" action="/users/<%= @user.id %>">
                 <div class="six columns">
-                <a class="button black-text"href="/users/<%= @user.id %>/edit">Edit</a>
+                <a class="button button-primary" href="/users/<%= @user.id %>/edit">Edit</a>
                  </div>
                  <div class="six columns">
                  <input type="hidden" value="DELETE" name="_method">
-                 <input type="submit" value="Delete">
+                 <input class="button button-primary" type="submit" value="Delete">
                    </div>
               </form>
               <br>
@@ -55,3 +60,7 @@
       </li>
     </ul>
   </div>
+
+  <%unless logged_in?%>
+  <p align="center"><a class="button" href="/login">Log in to view this page</a></p>
+  <% end%>

@@ -1,32 +1,30 @@
-<% if @note.park_id %>
 
-   <div class="row">
-     <div class="col s12 m12 l12">
-       <div class="card">
+<div class="row">
+  <p align="center"><a style="color:#888" href="/parks/<%=@note.park_id%>"><%= Park.find(@note.park_id).park_name%> National Park</a></p>
+   <div class="col s12 m12 l12">
+      <div class="card">
          <div class="card-image">
-           <img src="<%= Park.find(@note.park_id).image %>" alt="<%= Park.find(@note.park_id).park_name%>" style='height: 100%; width: 100%; object-fit: contain'">
-           <span class="card-title"><%= @note.title%></span>
+            <img src="<%= Park.find(@note.park_id).image %>" alt="<%= Park.find(@note.park_id).park_name%>" style='height: 100%; width: 100%; object-fit: contain'">
+            <span class="card-title"></span>
          </div>
          <div class="card-content">
-           <p><%= @note.content%></p>
+            <p><%= @note.title%></p>
          </div>
          <div class="card-action">
-           <a href="/parks/<%= @note.park_id%>" class="black-text"> <%= Park.find(@note.park_id).park_name%></a>
+            <p><%=@note.content%></p>
             <%if logged_in? && @note.user_id == current_user.id%>
-            <br>
-            <br>
-           <form method="POST" action="/notes/<%= @note.id %>">
-             <div class="six columns">
-               <a class="button black-text" href="/notes/<%= @note.id %>/edit">Edit</a>
-             </div>
-             <div class="six columns">
-               <input type="hidden" value="DELETE" name="_method">
-               <input type="submit" value="Delete">
-             </div>
-           </form>
-           <%end%>
+            <form method="POST" action="/notes/<%= @note.id %>">
+               <div class="six columns">
+                  <a class="button button-primary" style="color:white" href="/notes/<%= @note.id %>/edit">Edit</a>
+               </div>
+               <div class="six columns">
+                  <input type="hidden" value="DELETE" name="_method">
+                  <input class="button button-primary" type="submit" value="Delete">
+               </div>
+               <br>
+            </form>
+            <%end%>
          </div>
-       </div>
-     </div>
+      </div>
    </div>
-   <%end%>
+</div>

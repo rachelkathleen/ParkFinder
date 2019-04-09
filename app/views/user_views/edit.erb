@@ -1,18 +1,21 @@
-<h3>Edit your profile!</h3>
+
+  <div class="hero-text">
+    <h3 style="color:#888" align="center">Edit your profile</h3>
+  </div>
 <form action="/users/<%= @user.id %>" method="POST">
-  <input type='hidden' value='PATCH' name='_method'>
-  <div class="row">
-    <div class="twelve columns">
+   <input type='hidden' value='PATCH' name='_method'>
+   <div class="row">
+   <div class="twelve columns">
       <label for="exampleEmailInput">Username</label>
       <input class="u-full-width" type="text" value="<%= @user.user_name %>" name="user_name">
-    </div>
-    <div class="twelve columns">
+   </div>
+   <div class="twelve columns">
       <label for="exampleEmailInput">Email</label>
       <input class="u-full-width" type="email" value="<%= @user.email %>" name="email">
-    </div>
-    <div class="twelve columns">
+   </div>
+   <div class="twelve columns">
       <label for="exampleEmailInput">Password</label>
       <input class="u-full-width" type="password" value="<%= @user.password %>" name="password">
-    </div>
-  <input class="button-primary" type="submit" value="Edit Profile">
+   </div>
+   <input class="button button-primary" type="submit" value="Edit Profile">
 </form>

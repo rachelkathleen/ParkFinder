@@ -12,11 +12,10 @@ https://parkfinder-sinatra-project.herokuapp.com
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-Please make sure to update tests as appropriate.
-
 ## Authors
 
-* [rachelkathleen](https://github.com/rachelkathleen)
+- [rachelkathleen](https://github.com/rachelkathleen)
+- [www.rachel-hawa.com](www.rachel-hawa.com)
 
 ## License
 
